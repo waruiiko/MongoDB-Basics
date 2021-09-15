@@ -35,6 +35,7 @@ Configuration files
 Log messages
 Database storage
 JSON quickly overtook XML, is more difficult for a human to read, significantly more verbose, and less ideally suited to representing object structures used in modern programming languages.
+
 #### What is BSON?
 BSON simply stands for “Binary JSON,” and that’s exactly what it was invented to be. BSON’s binary structure encodes type and length information, which allows it to be parsed much more quickly.
 
@@ -43,3 +44,32 @@ Since its initial formulation, BSON has been extended to add some optional non-J
 Languages that support any kind of complex mathematics typically have different sized integers (ints vs longs) or various levels of decimal precision (float, double, decimal128, etc.).
 
 Not only is it helpful to be able to represent those distinctions in data stored in MongoDB, it also allows for comparisons and calculations to happen directly on data in ways that simplify consuming application code.
+
+## Importing and Exporting Data
+JSON
+* mongoimport
+* mongoexport
+
+BSON
+* mongorestore
+* mongodump
+
+Code used in this lecture:
+```SHELL
+ COPY
+mongodump --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"
+
+mongoexport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" --collection=sales --out=sales.json
+
+mongorestore --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"  --drop dump
+
+mongoimport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" --drop sales.json
+```
+
+## Data Explorer
+Namespace - The concatenation of the database name and collection name is called a namespace.
+
+We looked at the sample_training.zips collection and issued the following queries:
+
+{"state": "NY"}
+{"state": "NY", "city": "ALBANY"}
