@@ -79,6 +79,9 @@ In this lesson we used the following commands:
 
 Connect to the Atlas cluster:
 ```SHELL
+* MAC
+mongosh "mongodb+srv://sandbox.yiyle.mongodb.net/myFirstDatabase" --username m001-student
+* course IDE
 mongo "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/admin"
 show dbs
 
