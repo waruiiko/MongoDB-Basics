@@ -44,3 +44,8 @@ db.inspections.insert({
 
 db.inspections.find({"id" : "10021-2015-ENFO", "certificate_number" : 9278806}).pretty()
 ```
+
+## Inserting New Documents - insert() order
+
+## Updating Documents - Data Explorer
+
