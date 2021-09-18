@@ -49,3 +49,4 @@ db.inspections.find({"id" : "10021-2015-ENFO", "certificate_number" : 9278806}).
 
 ## Updating Documents - Data Explorer
 
+## Updating Documents - mongo shell
