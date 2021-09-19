@@ -72,3 +72,11 @@ db.grades.updateOne({ "student_id": 250, "class_id": 339 },
                                 }
                      })
 ```
+
+## Deleting Documents and Collections
+```s
+db.inspections.find({ "test": 1 }).pretty()
+db.inspections.find({ "test": 3 }).pretty()
+db.inspections.deleteMany({ "test": 1 })
+db.inspections.deleteOne({ "test": 3 })
+```
