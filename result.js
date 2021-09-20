@@ -1,6 +1,8 @@
 import run from './test.js'
 const runs = run()
-console.log(runs)
+// console.log(runs)
+const collection = runs.db("sample_training").collection("trips");
+console.log(collection)
 // async function findDocuments (db) {
 //     // Get the documents collection
 //     const collection = client.db("sample_training").collection("trips");
