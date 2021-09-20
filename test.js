@@ -1,4 +1,5 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
+// const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.yiyle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -6,7 +7,7 @@ async function run() {
     let db
     try {
         db = await client.connect();
-        console.log(db);
+        // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
         // const collection = client.db("sample_training").collection("trips");
@@ -25,4 +26,5 @@ async function run() {
     }
     return db
 }
-run().catch(console.dir);
+// run().catch(console.dir);
+export default run;

@@ -1,0 +1,25 @@
+{
+  "name": "MongoDB-Basics",
+  "version": "1.0.0",
+  "description": "https://university.mongodb.com/mercury/M001/2021_September_7/overview",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "mongodb": "^4.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waruiiko/MongoDB-Basics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waruiiko/MongoDB-Basics/issues"
+  },
+  "homepage": "https://github.com/waruiiko/MongoDB-Basics#readme"
+}
