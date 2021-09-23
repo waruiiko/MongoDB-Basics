@@ -9,16 +9,15 @@ async function run() {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection =client.db("sample_training").collection("trips");
+        const collection =client.db("sample_training").collection("zips");
         const query = {
-            "tripduration": { "$lte": 70 },
-            "usertype": "Customer"
+            "pop": { "$lt": 1000 }
         };
-        const movie = await collection.findOne(query);
+        const movie = await collection.find(query).count();
         console.log(movie);
     } catch (err) {
         // Handle error
-        console.log(err)
+        console.log("err",err)
     } finally {
         // Ensures that the client will close when you finish/error
         await client.close();

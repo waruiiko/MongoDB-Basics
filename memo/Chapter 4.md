@@ -10,3 +10,5 @@
 {<field>:{<operator>:<value>}}
 ```
 
+db.zips.count({ "pop": { "$lt" : 1000 }})
+db.zips.find({ “pop”: { “$lt”: 1000 }}).count()

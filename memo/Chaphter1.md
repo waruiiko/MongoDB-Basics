@@ -25,4 +25,7 @@
   Create a Database User
     * username: m001-student
     * password: m001-mongodb-basics
+
+    mongo "mongodb+srv://m001-student:m001-mongodb-basics@<cluster>.mongodb.net/admin"
+    mongo "mongodb+srv://sandbox.yiyle.mongodb.net/myFirstDatabase" --username m001-student
   ```
