@@ -9,9 +9,9 @@ async function run() {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection =client.db("sample_training").collection("zips");
+        const collection =client.db("sample_training").collection("trips");
         const query = {
-            "pop": { "$lt": 1000 }
+            "birth year": { "$eq": 1998 }
         };
         const movie = await collection.find(query).count();
         console.log(movie);
