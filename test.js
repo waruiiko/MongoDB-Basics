@@ -13,7 +13,7 @@ async function run() {
         const query = {
             "birth year": { "$eq": 1998 }
         };
-        const movie = await collection.find(query).count()
+        const movie = await collection.find(query).explain()
         console.log(movie);
     } catch (err) {
         // Handle error
