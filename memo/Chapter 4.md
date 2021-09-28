@@ -14,3 +14,15 @@ db.zips.find({ “pop”: { “$lt”: 1000 }}).count()
 ```
 
 ## Query Operators - Logic
+```s
+{<operator>:[{statement1},{statement2},...]}
+    $and 
+    Match all of the specified query clauses
+    $or 
+    At least one of the query clauses is matched
+    $nor
+    Fail to match both given clauses
+{$not:{statement}}
+    $not 
+    Negates the query requirement
+```
