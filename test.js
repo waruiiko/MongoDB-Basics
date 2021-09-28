@@ -9,7 +9,7 @@ async function run() {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection =client.db("sample_training").collection("inspections");
+        const collection =client.db("sample_training").collection("zips");
         const query = {
             result:"Out of Business",sector:"Home Improvement Contractor - 100"
         };
