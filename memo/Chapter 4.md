@@ -8,7 +8,9 @@
     $lte = Less Than or Equal to
 ```s
 {<field>:{<operator>:<value>}}
-```
 
 db.zips.count({ "pop": { "$lt" : 1000 }})
 db.zips.find({ “pop”: { “$lt”: 1000 }}).count()
+```
+
+## Query Operators - Logic
