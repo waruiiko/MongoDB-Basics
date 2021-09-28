@@ -18,6 +18,7 @@ db.zips.find({ “pop”: { “$lt”: 1000 }}).count()
 {<operator>:[{statement1},{statement2},...]}
     $and 
     Match all of the specified query clauses
+    {"student_id":{"$gt":25,"$lt":100}}
     $or 
     At least one of the query clauses is matched
     $nor
