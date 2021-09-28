@@ -9,11 +9,11 @@ async function run() {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection =client.db("sample_training").collection("trips");
+        const collection =client.db("sample_training").collection("routes");
         const query = {
-            "birth year": { "$eq": 1998 }
+            "stops": { "$lt": 0 }
         };
-        const movie = await collection.find(query).getMaxListeners()
+        const movie = await collection.find(query).count()
         console.log(movie);
     } catch (err) {
         // Handle error
