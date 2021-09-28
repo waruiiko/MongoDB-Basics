@@ -9,9 +9,9 @@ async function run() {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection =client.db("sample_training").collection("routes");
+        const collection =client.db("sample_training").collection("inspections");
         const query = {
-            "stops": { "$lt": 0 }
+            result:"Out of Business",sector:"Home Improvement Contractor - 100"
         };
         const movie = await collection.find(query).count()
         console.log(movie);
