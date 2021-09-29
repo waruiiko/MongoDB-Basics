@@ -11,7 +11,8 @@ async function run() {
         // const movies = database.collection('zips');
         const collection =client.db("sample_training").collection("zips");
         const query = {
-            result:"Out of Business",sector:"Home Improvement Contractor - 100"
+            // "birth year": { "$eq": 1998 }
+            "$nor":[{"pop":{"$lt":5000}},{"$gt":1000000}]
         };
         const movie = await collection.find(query).count()
         console.log(movie);
