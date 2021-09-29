@@ -12,7 +12,9 @@ async function run() {
         const collection =client.db("sample_training").collection("zips");
         const query = {
             // "birth year": { "$eq": 1998 }
-            "$nor":[{"pop":{"$lt":5000}},{"$gt":1000000}]
+
+            //人口大于5000小于1000000
+            "$nor":[{"pop":{"$lt":5000}},{"pop":{"$gt":1000000}}]
         };
         const movie = await collection.find(query).count()
         console.log(movie);
