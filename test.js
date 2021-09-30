@@ -35,7 +35,14 @@ async function run(a) {
             //     },
             // ]
 
-            "$expr": { "$eq": ["$end station id", "$start station id"] }
+            //条件查询
+            // "$expr": { "$eq": ["$end station id", "$start station id"] }
+
+            "$expr": {
+                "$and": [{ "$gt": ["$tripduration", 1200] },
+                { "$eq": ["$end station id", "$start station id"] }
+                ]
+            }
 
         };
         const movie = await collection.find(query).count()

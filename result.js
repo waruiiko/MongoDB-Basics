@@ -1,3 +1,3 @@
 import run from './test.js'
-const a = "companies"
+const a = "trips"
 run(a);
