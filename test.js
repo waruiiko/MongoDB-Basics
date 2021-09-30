@@ -20,20 +20,23 @@ async function run(a) {
             // [and] either have the social category_code [or] web category_code,
             // [or] were founded in the month of October    
             // [and] also either have the social category_code [or] web category_code?
-            "$or": [
-                {
-                    "$and": [{ "founded_year": 2004 }, {
-                        "$or": [{ "category_code": "social" },
-                        { "category_code": "web" }]
-                    }]
-                },
-                {
-                    "$and": [{ "founded_month": 10 }, {
-                        "$or": [{ "category_code": "social" },
-                        { "category_code": "web" }]
-                    }]
-                },
-            ]
+            // "$or": [
+            //     {
+            //         "$and": [{ "founded_year": 2004 }, {
+            //             "$or": [{ "category_code": "social" },
+            //             { "category_code": "web" }]
+            //         }]
+            //     },
+            //     {
+            //         "$and": [{ "founded_month": 10 }, {
+            //             "$or": [{ "category_code": "social" },
+            //             { "category_code": "web" }]
+            //         }]
+            //     },
+            // ]
+
+            "$expr": { "$eq": ["$end station id", "$start station id"] }
+
         };
         const movie = await collection.find(query).count()
         console.log(movie);
