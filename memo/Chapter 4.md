@@ -30,3 +30,9 @@ db.zips.find({ “pop”: { “$lt”: 1000 }}).count()
     $not 
     Negates the query requirement
 ```
+
+## Expressive Query Operator
+```s
+    {$expr:{<expression>}}
+```
+$expr allows us to use variables and conditional statements
