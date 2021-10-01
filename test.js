@@ -58,7 +58,7 @@ async function run(a) {
                          "Laptop friendly workspace" ]
             }
         }
-        const movie = await collection.find(query)
+        const movie = await collection.find(query).count();
         console.log(movie);
     } catch (err) {
         // Handle error
