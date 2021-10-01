@@ -3,13 +3,13 @@ import { MongoClient } from 'mongodb';
 const uri = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.yiyle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-async function run(a) {
+async function run(dbs,collections) {
     try {
         await client.connect();
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection = client.db("sample_training").collection(a);
+        const collection = client.db(dbs).collection(collections);
         const query = {
             // "birth year": { "$eq": 1998 }
 
@@ -82,9 +82,13 @@ async function run(a) {
             //How many trips in the sample_training.trips collection started at stations that are to the west of the -74 longitude coordinate?
             // "start station location.coordinates.0":{"$lt":-74}
 
-            
+            // How many inspections from the sample_training.inspections collection were conducted in the city of NEW YORK?
+            // "address.city":"NEW YORK"
+
+            // Which of the following queries will return the names and addresses of all listings from the sample_airbnb.listingsAndReviews collection where the first amenity in the list is "Internet"?
+            // {"amenities.0":"Internet"},{"name":1,"address":1}
         }
-        const movie = await collection.find(query).count();
+        const movie = await collection.find({"amenities.0":"Internet"},{"name":1,"address":1}).count();
         console.log(movie);
     } catch (err) {
         // Handle error

@@ -1,3 +1,4 @@
 import run from './test.js'
-const a = "trips"
-run(a);
+const dbs = "sample_airbnb"
+const collections = "listingsAndReviews"
+run(dbs,collections);
