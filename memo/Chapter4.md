@@ -78,3 +78,7 @@ db.grades.find({"class_id":431},{"scores":{"$elemMatch":{"score":{"$gt":85}}}}).
 db.grades.find({"scores":{"$elemMatch":{"type":"extra credit"}}}).pretty()
 ```
 
+## Array Operators and Sub-Documents
+### Querying arrays and sub-documents
+MQL uses dot-notation to specify the address of nested elements in a document
+To use dot-notation in arrays specify the position of the element in the array.
