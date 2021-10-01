@@ -38,11 +38,15 @@ async function run(a) {
             //条件查询
             // "$expr": { "$eq": ["$end station id", "$start station id"] }
 
-            "$expr": {
-                "$and": [{ "$gt": ["$tripduration", 1200] },
-                { "$eq": ["$end station id", "$start station id"] }
-                ]
-            }
+            // "$expr": {
+            //     "$and": [{ "$gt": ["$tripduration", 1200] },
+            //     { "$eq": ["$end station id", "$start station id"] }
+            //     ]
+            // }
+
+            //How many companies in the sample_training.companies collection have the same permalink as their twitter_username?
+            "$expr": { "$eq": ["$permalink", "$twitter_username"] }
+
 
         };
         const movie = await collection.find(query).count()
