@@ -49,6 +49,17 @@ db.listingsAndReviews.find({"$and": [{"accommodates":{"$gt":6},"reviews":{"$size
 ```
 
 ## Array Operators and Projection
+### Projection Syntax
+1 - include the field
+0 - exclude the field
+Use only 1s or only 0s
+```s
+    db.<collections>.find({<query>},{<field1>:1,<field2>:1})
+    db.<collections>.find({<query>},{<field1>:0,<field2>:0})
+    #exception
+    db.<collections>.find({<query>},{<field1>:1,"_id":0})
+```
+
 ### Projection and $elemMatch
 db.<collection>.find({<query>},{<projection>})
 Specifies which fields should or should not be included in the result cursor.
