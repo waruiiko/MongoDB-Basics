@@ -48,15 +48,28 @@ async function run(a) {
             // "$expr": { "$eq": ["$permalink", "$twitter_username"] }
 
             //Find all documents with exactly 20 amenities which include all the amenities listed in the query array:
-            "amenities": {
-                "$size": 20,
-                "$all": [ "Internet", "Wifi",  "Kitchen",
-                         "Heating", "Family/kid friendly",
-                         "Washer", "Dryer", "Essentials",
-                         "Shampoo", "Hangers",
-                         "Hair dryer", "Iron",
-                         "Laptop friendly workspace" ]
-            }
+            // "amenities": {
+            //     "$size": 20,
+            //     "$all": [ "Internet", "Wifi",  "Kitchen",
+            //              "Heating", "Family/kid friendly",
+            //              "Washer", "Dryer", "Essentials",
+            //              "Shampoo", "Hangers",
+            //              "Hair dryer", "Iron",
+            //              "Laptop friendly workspace" ]
+            // }
+
+            //Using the sample_airbnb.listingsAndReviews collection find out how many documents have the "property_type" "House", and include "Changing table" as one of the "amenities"?
+            // "$and": [
+            //     {
+            //         "amenities": {
+            //             "$all":["Changing table"]
+            //         }
+            //     },
+            //     {
+            //         "property_type":"House"
+            //     }
+            // ]
+            "property_type": "House","amenities": "Changing table"
         }
         const movie = await collection.find(query).count();
         console.log(movie);
