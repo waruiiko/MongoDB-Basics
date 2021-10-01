@@ -78,8 +78,13 @@ async function run(a) {
 
             // Which of the following queries will return only the names of companies from the sample_training.companies collection that had exactly 8 funding rounds?
             // {"funding_rounds":{"$size": 8}},{"name":1,"_id":0}
+
+            //How many trips in the sample_training.trips collection started at stations that are to the west of the -74 longitude coordinate?
+            // "start station location.coordinates.0":{"$lt":-74}
+
+            
         }
-        const movie = await collection.find({"funding_rounds":{"$size": 8}},{"name":1,"_id":0}).count();
+        const movie = await collection.find(query).count();
         console.log(movie);
     } catch (err) {
         // Handle error

@@ -82,3 +82,25 @@ db.grades.find({"scores":{"$elemMatch":{"type":"extra credit"}}}).pretty()
 ### Querying arrays and sub-documents
 MQL uses dot-notation to specify the address of nested elements in a document
 To use dot-notation in arrays specify the position of the element in the array.
+```s
+db.collection.find({"field 1.other field.also a field":"value"})
+
+use sample_training
+db.trips.findOne({ "start station location.type": "Point" })
+db.companies.find({ "relationships.0.person.last_name": "Zuckerberg" },
+                  { "name": 1 }).pretty()
+db.companies.find({ "relationships.0.person.first_name": "Mark",
+                    "relationships.0.title": { "$regex": "CEO" } },
+                  { "name": 1 }).count()
+db.companies.find({ "relationships.0.person.first_name": "Mark",
+                    "relationships.0.title": {"$regex": "CEO" } },
+                  { "name": 1 }).pretty()
+db.companies.find({ "relationships":
+                      { "$elemMatch": { "is_past": true,
+                                        "person.first_name": "Mark" } } },
+                  { "name": 1 }).pretty()
+db.companies.find({ "relationships":
+                      { "$elemMatch": { "is_past": true,
+                                        "person.first_name": "Mark" } } },
+                  { "name": 1 }).count()
+```
