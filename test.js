@@ -9,7 +9,7 @@ async function run(a) {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection = client.db("sample_airbnb").collection(a);
+        const collection = client.db("sample_training").collection(a);
         const query = {
             // "birth year": { "$eq": 1998 }
 
@@ -74,9 +74,12 @@ async function run(a) {
             // "property_type": "House","amenities": "Changing table"
 
             // How many companies in the sample_training.companies collection have offices in the city of Seattle?
-            "offices":{"$elemMatch":{"city":"Seattle"}}
+            // "offices":{"$elemMatch":{"city":"Seattle"}}
+
+            // Which of the following queries will return only the names of companies from the sample_training.companies collection that had exactly 8 funding rounds?
+            // {"funding_rounds":{"$size": 8}},{"name":1,"_id":0}
         }
-        const movie = await collection.find(query).count();
+        const movie = await collection.find({"funding_rounds":{"$size": 8}},{"name":1,"_id":0}).count();
         console.log(movie);
     } catch (err) {
         // Handle error
