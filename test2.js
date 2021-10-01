@@ -21,6 +21,7 @@ async function listDatabases(client) {
     const databasesList = await client.db().admin().listDatabases();
     console.log("databases:")
     databasesList.databases.forEach(db => {
+        // console.log(`- ${db.name}`)
         console.log(`- ${db.name}`)
     })
 }
