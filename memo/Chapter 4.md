@@ -45,4 +45,5 @@ Returns a cursor with all documents where the specified array field is exactly t
 Returns a cursor with all documents in which the specified array field contains all the given elements regardless of their order in the array.
 ```s
 db.listingsAndReviews.find({"amenities":{"$size": 20,"$all":["Internet", "Wifi","Kitchen","Heating", "Family/kid friendly","Washer", "Dryer","Essentials","Shampoo","Hangers","Hair dryer", "Iron","Laptop friendly workspace"]}}).pretty()
+db.listingsAndReviews.find({"$and": [{"accommodates":{"$gt":6},"reviews":{"$size": 50}}]}).pretty()
 ```
