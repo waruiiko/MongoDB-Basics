@@ -69,7 +69,12 @@ async function run(a) {
             //         "property_type":"House"
             //     }
             // ]
-            "property_type": "House","amenities": "Changing table"
+
+            //OR
+            // "property_type": "House","amenities": "Changing table"
+
+            // How many companies in the sample_training.companies collection have offices in the city of Seattle?
+            "scores":{"$elemMatch":{"type":"extra credit"}}
         }
         const movie = await collection.find(query).count();
         console.log(movie);

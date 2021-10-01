@@ -59,3 +59,11 @@ Do not combine 1s and 0s in a projection.
 Matches documents that contain an array field with at least one element that matches the specified query criteria.
 or
 Projects only the array elements with at least one element that matches the specified criteria.
+```s
+# Find all documents where the student in class 431 received a grade higher than 85 for any type of assignment:
+db.grades.find({"class_id":431},{"scores":{"$elemMatch":{"score":{"$gt":85}}}}).pretty()
+
+# Find all documents where the student had an extra credit score:
+db.grades.find({"scores":{"$elemMatch":{"type":"extra credit"}}}).pretty()
+```
+

@@ -1,3 +1,3 @@
 import run from './test.js'
-const a = "listingsAndReviews"
+const a = "companies"
 run(a);
