@@ -9,7 +9,7 @@ async function run(a) {
         // console.log(db);
         // const database = client.db('sample_training');
         // const movies = database.collection('zips');
-        const collection = client.db("sample_training").collection(a);
+        const collection = client.db("sample_airbnb").collection(a);
         const query = {
             // "birth year": { "$eq": 1998 }
 
@@ -45,11 +45,20 @@ async function run(a) {
             // }
 
             //How many companies in the sample_training.companies collection have the same permalink as their twitter_username?
-            "$expr": { "$eq": ["$permalink", "$twitter_username"] }
+            // "$expr": { "$eq": ["$permalink", "$twitter_username"] }
 
-
-        };
-        const movie = await collection.find(query).count()
+            //Find all documents with exactly 20 amenities which include all the amenities listed in the query array:
+            "amenities": {
+                "$size": 20,
+                "$all": [ "Internet", "Wifi",  "Kitchen",
+                         "Heating", "Family/kid friendly",
+                         "Washer", "Dryer", "Essentials",
+                         "Shampoo", "Hangers",
+                         "Hair dryer", "Iron",
+                         "Laptop friendly workspace" ]
+            }
+        }
+        const movie = await collection.find(query)
         console.log(movie);
     } catch (err) {
         // Handle error

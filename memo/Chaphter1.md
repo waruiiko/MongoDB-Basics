@@ -28,4 +28,6 @@
 
     mongo "mongodb+srv://m001-student:m001-mongodb-basics@<cluster>.mongodb.net/admin"
     mongo "mongodb+srv://sandbox.yiyle.mongodb.net/myFirstDatabase" --username m001-student
+    mongo "mongodb+srv://sandbox.yiyle.mongodb.net/myFirstDatabase" --username m001-student
+
   ```
