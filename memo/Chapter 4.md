@@ -47,3 +47,15 @@ Returns a cursor with all documents in which the specified array field contains 
 db.listingsAndReviews.find({"amenities":{"$size": 20,"$all":["Internet", "Wifi","Kitchen","Heating", "Family/kid friendly","Washer", "Dryer","Essentials","Shampoo","Hangers","Hair dryer", "Iron","Laptop friendly workspace"]}}).pretty()
 db.listingsAndReviews.find({"$and": [{"accommodates":{"$gt":6},"reviews":{"$size": 50}}]}).pretty()
 ```
+
+## Array Operators and Projection
+### Projection and $elemMatch
+db.<collection>.find({<query>},{<projection>})
+Specifies which fields should or should not be included in the result cursor.
+Do not combine 1s and 0s in a projection.
+* Except for {"_id:0",<field>:1}
+
+{<field>:{"$elemMatch":{<field>:<value>}}}
+Matches documents that contain an array field with at least one element that matches the specified query criteria.
+or
+Projects only the array elements with at least one element that matches the specified criteria.
