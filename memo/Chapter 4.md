@@ -36,3 +36,10 @@ db.zips.find({ “pop”: { “$lt”: 1000 }}).count()
     {$expr:{<expression>}}
 ```
 $expr allows us to use variables and conditional statements
+
+## Array Operators
+{<array field>:{"$size":<number>}}
+Returns a cursor with all documents where the specified array field is exactly the given length.
+
+{<array field>:{"$all":<array>}}
+Returns a cursor with all documents in which the specified array field contains all the given elements regardless of their order in the array.
