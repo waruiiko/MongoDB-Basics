@@ -32,3 +32,17 @@ db.listingsAndReviews.aggregate([
                                                 "count": { "$sum": 1 } } }
                                 ])
 ```
+
+## sort() and limit()
+use sort() first
+While the limit() and sort() methods are not listed in the correct order, MongoDB flips their order when executing the query, delivering the results that the question prompt is looking for.
+```s
+use sample_training
+db.zips.find().sort({ "pop": 1 }).limit(1)
+db.zips.find({ "pop": 0 }).count()
+db.zips.find().sort({ "pop": -1 }).limit(1)
+db.zips.find().sort({ "pop": -1 }).limit(10)
+db.zips.find().sort({ "pop": 1, "city": -1 }).pretty()
+
+db.trips.find({ "birth year": { "$ne": null }).sort({ "birth year": -1 }).limit(1).pretty()
+```
