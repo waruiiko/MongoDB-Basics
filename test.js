@@ -99,7 +99,8 @@ async function run(dbs, collections) {
             //     }
             // ]
         }
-        const movie = await collection.aggregate([{"$project":{"room_type":1,"_id":0}},{"$group": {           "_id":"$room_type","count":{"$sum":1}}}]);
+        // const movie = await collection.aggregate([{"$project":{"room_type":1,"_id":0}},{"$group": {           "_id":"$room_type","count":{"$sum":1}}}]);
+        const movie = await collection.find(query).count();
         console.log(movie);
     } catch (err) {
         // Handle error
