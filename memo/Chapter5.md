@@ -44,5 +44,6 @@ db.zips.find().sort({ "pop": -1 }).limit(1)
 db.zips.find().sort({ "pop": -1 }).limit(10)
 db.zips.find().sort({ "pop": 1, "city": -1 }).pretty()
 
-db.trips.find({ "birth year": { "$ne": null }).sort({ "birth year": -1 }).limit(1).pretty()
+db.trips.find({"birth year":{"$ne":null}},{"birth year":1}).sort({"birth year":-1}).limit(1).pretty()
+db.trips.find({"birth year":{"$ne":""}},{"name":1,"birth year":1}).sort({"birth year":-1}).limit(1).pretty()
 ```
