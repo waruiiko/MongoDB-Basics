@@ -1,6 +1,6 @@
 # Chapter 5: Indexing and Aggregation Pipeline
 ## Aggregation Framework 
-
+[Aggregation Pipeline](https://www.cnblogs.com/shanyou/p/3494854.html)
 ```s
 db.listingsAndReviews.find({ "amenities": "Wifi" },
                            { "price": 1, "address": 1, "_id": 0 }).pretty()
@@ -23,6 +23,12 @@ db.listingsAndReviews.aggregate([ { "$project": { "address": 1, "_id": 0 }},
 db.listingsAndReviews.aggregate([
                                   { "$project": { "address": 1, "_id": 0 }},
                                   { "$group": { "_id": "$address.country",
+                                                "count": { "$sum": 1 } } }
+                                ])
+
+db.listingsAndReviews.aggregate([
+                                  { "$project": { "room_type": 1, "_id": 0 }},
+                                  { "$group": { "_id": "$room_type",
                                                 "count": { "$sum": 1 } } }
                                 ])
 ```

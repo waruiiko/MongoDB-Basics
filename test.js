@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 const uri = "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.yiyle.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-async function run(dbs,collections) {
+async function run(dbs, collections) {
     try {
         await client.connect();
         // console.log(db);
@@ -87,8 +87,19 @@ async function run(dbs,collections) {
 
             // Which of the following queries will return the names and addresses of all listings from the sample_airbnb.listingsAndReviews collection where the first amenity in the list is "Internet"?
             // {"amenities.0":"Internet"},{"name":1,"address":1}
+
+            //What room types are present in the sample_airbnb.listingsAndReviews collection?
+            // [
+            //     { "$project": { "room_type": 1, "_id": 0 } },
+            //     {
+            //         "$group": {
+            //             "_id": "$room_type",
+            //             "count": { "$sum": 1 }
+            //         }
+            //     }
+            // ]
         }
-        const movie = await collection.find({"amenities.0":"Internet"},{"name":1,"address":1}).count();
+        const movie = await collection.aggregate([{"$project":{"room_type":1,"_id":0}},{"$group": {           "_id":"$room_type","count":{"$sum":1}}}]);
         console.log(movie);
     } catch (err) {
         // Handle error
