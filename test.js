@@ -98,6 +98,11 @@ async function run(dbs, collections) {
             //         }
             //     }
             // ]
+
+            //Jameela often queries the sample_training.routes collection by the src_airport field like this:
+            //db.routes.find({ "src_airport": "MUC" }).pretty()
+            //Which command will create an index that will support this query?
+            
         }
         // const movie = await collection.aggregate([{"$project":{"room_type":1,"_id":0}},{"$group": {           "_id":"$room_type","count":{"$sum":1}}}]);
         const movie = await collection.find(query).count();
