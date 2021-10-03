@@ -68,3 +68,19 @@ db.trips.find({ "start station id": 476 }).sort( { "birth year": 1 } )
 db.trips.createIndex({ "birth year": 1 })
 db.trips.createIndex({ "start station id": 1, "birth year": 1 })
 ```
+
+## Introduction to Data Modeling
+Data Modeling:a way to organize fields in a document to support your application performance and querying capabilities.
+[Data Modeling](https://university.mongodb.com/courses/M320/about):
+Learn everything you need to know about data modeling for MongoDB.
+
+## Upsert - Update or Insert?
+Everything in MQL that is used to locate a document in a collection can also be used to modify this document.
+```s
+db.collection.updateOne({<query to locate>},{<update>})
+```
+
+Upsert is a hybird of update and insert, it should only be used when it is needed.
+```s
+db.collection.updateOne({<query>},{<update>},{"upsert":true})
+```
